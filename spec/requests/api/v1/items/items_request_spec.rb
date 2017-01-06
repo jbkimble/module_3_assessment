@@ -46,9 +46,12 @@ describe 'api/v1/items' do
 
       expect(Item.count).to eq(0)
       post "/api/v1/items/", item: {name:"bacon", description:"yum", image_url:"https://i.vimeocdn.com/portrait/58832_300x300"}
+      result = JSON.parse(response.body)
 
       expect(Item.count).to eq(1)
       expect(Item.last.name).to eq("bacon")
+      expect(result["name"]).to eq("bacon")
+      expect(result["description"]).to eq("yum")
     end
 
 
