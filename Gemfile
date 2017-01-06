@@ -14,13 +14,13 @@ gem "less-rails-bootstrap"
 gem "minitest-rails"
 gem 'faraday'
 gem "figaro"
-gem 'vcr'
-gem 'webmock'
-gem "capybara"
+gem 'byebug', platform: :mri
+
 
 group :development do
   gem 'byebug', platform: :mri
   gem  'rspec-rails'
+  gem 'capybara'
   gem  'pry'
   gem 'launchy'
 end
@@ -33,4 +33,5 @@ end
 group :development, :test do
   gem "minitest-rails-capybara"
   gem "pry", :require => "pry"
+  gem 'byebug', platform: :mri
 end
