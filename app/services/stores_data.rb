@@ -1,11 +1,13 @@
 class StoresData
-  attr_reader :city, :longname, :phone, :distance, :store_type
+  attr_reader :city, :longname, :phone, :distance, :store_type, :id
+
   def initialize(attributes={})
     @city = attributes["city"]
     @longname = attributes["longName"]
     @phone = attributes["phone"]
     @distance = attributes["distance"]
     @store_type = attributes["storeType"]
+    @id = attributes["storeId"]
   end
 
   def self.store_data(zipcode)

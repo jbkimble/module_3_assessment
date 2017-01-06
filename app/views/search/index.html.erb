@@ -1,7 +1,7 @@
   <%= @local_stores.count %> Total Stores
 <% @local_stores.each do |store| %>
   City: <%= store.city %> <br>
-  Name: <%= store.longname %> <br>
+  Name: <%= link_to store.longname, store_path(store.id) %><br>
   Type: <%= store.store_type %> <br>
   Distance: <%= store.distance %> miles <br>
   Phone: <%= store.phone %>
