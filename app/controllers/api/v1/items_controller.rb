@@ -1,4 +1,6 @@
 class Api::V1::ItemsController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   def index
     render json: Item.all, :only => [:id, :name, :description, :image_url]
   end
@@ -15,9 +17,8 @@ class Api::V1::ItemsController < ApplicationController
   end
 
   def create
-    item = Item.new(item_params)
+      item = Item.new(item_params)
     if item.save
-      # head code: "201"
       render json: item, :only => [:id, :name, :description, :image_url]
     else
     end
