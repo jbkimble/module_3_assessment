@@ -12,6 +12,8 @@ describe 'as a user' do
       expect(current_path).to eq(search_path)
 
       expect(page).to have_content("16 Total Stores")
+      expect(page).to have_content("Cherry Creek Shopping Center")
+      expect(page).to have_content("Boulder")
     end
   end
 end
