@@ -12,9 +12,22 @@ gem "faker"
 gem "therubyracer"
 gem "less-rails-bootstrap"
 gem "minitest-rails"
+gem 'faraday'
+gem "figaro"
+gem 'vcr'
+gem 'webmock'
+gem "capybara"
 
 group :development do
-  gem "spring"
+  gem 'byebug', platform: :mri
+  gem  'rspec-rails'
+  gem  'pry'
+  gem 'launchy'
+end
+
+group :test do
+  gem 'vcr'
+  gem 'webmock'
 end
 
 group :development, :test do
