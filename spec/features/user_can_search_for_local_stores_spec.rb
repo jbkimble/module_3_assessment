@@ -23,4 +23,3 @@ describe 'as a user' do
     end
   end
 end
-# The name will be a link in the next story:

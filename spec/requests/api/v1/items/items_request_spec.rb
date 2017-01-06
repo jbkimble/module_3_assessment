@@ -13,6 +13,9 @@ describe 'api/v1/items' do
       expect(response.code).to eq("200")
       expect(result[0]["name"]).to eq("chair")
       expect(result[1]["name"]).to eq("table")
+
+      expect(result[1]).to_not have_key("created_at")
+      expect(result[1]).to_not have_key("updated_at")
     end
 
     scenario 'GET to show' do
@@ -27,7 +30,9 @@ describe 'api/v1/items' do
       expect(result["name"]).to eq("table")
       expect(result["description"]).to eq("made of steel")
       expect(result["image_url"]).to eq("https://i.vimeocdn.com/portrait/58832_300x300")
-      # expect(result). TO NOT HAVE KEY CREATED_AT OR UPDATED_AT
+
+      expect(result).to_not have_key("created_at")
+      expect(result).to_not have_key("updated_at")
     end
 
     scenario 'DELETE an item' do
@@ -43,15 +48,20 @@ describe 'api/v1/items' do
     end
 
     scenario 'CREATE an item' do
-
       expect(Item.count).to eq(0)
       post "/api/v1/items/", item: {name:"bacon", description:"yum", image_url:"https://i.vimeocdn.com/portrait/58832_300x300"}
       result = JSON.parse(response.body)
 
       expect(Item.count).to eq(1)
+      expect(response.code).to eq("200")
       expect(Item.last.name).to eq("bacon")
       expect(result["name"]).to eq("bacon")
       expect(result["description"]).to eq("yum")
+
+      expect(result).to_not have_key("created_at")
+      expect(result).to_not have_key("updated_at")
+
+      # expect(response.code).to eq("201")
     end
 
 

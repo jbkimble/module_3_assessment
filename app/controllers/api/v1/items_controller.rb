@@ -1,10 +1,10 @@
 class Api::V1::ItemsController < ApplicationController
   def index
-    render json: Item.all
+    render json: Item.all, :only => [:id, :name, :description, :image_url]
   end
 
   def show
-    render json: Item.find(params[:id])
+    render json: Item.find(params[:id]), :only => [:id, :name, :description, :image_url]
   end
 
   def destroy
@@ -18,7 +18,7 @@ class Api::V1::ItemsController < ApplicationController
     item = Item.new(item_params)
     if item.save
       # head code: "201"
-      render json: item
+      render json: item, :only => [:id, :name, :description, :image_url]
     else
     end
   end
