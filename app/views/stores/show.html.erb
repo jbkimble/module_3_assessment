@@ -1,2 +1,9 @@
-Data for: <%= @store_info.name %> <%= @store_info.store_type %>
-<%= @store_info.hours %>
+Data for: <%= @store_info.name %> <br>
+Store Type: <%= @store_info.store_type %><br> <br>
+<%= @store_info.hours %> <br> <br>
+
+Location:
+  <%= @store_info.address %>
+  <%= @store_info.city %>,
+  <%= @store_info.state %>
+  <%= @store_info.zip %>

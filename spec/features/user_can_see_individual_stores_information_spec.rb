@@ -8,11 +8,11 @@ describe 'As a user' do
       click_on "search"
       click_on("Best Buy Mobile - Cherry Creek Shopping Center")
 
-      # expect(current_path).to eq(stores_path())
+      expect(current_path).to eq(store_path("2740"))
       expect(page).to have_content("Best Buy Mobile - Cherry Creek Shopping Center")
       expect(page).to have_content("Mobile")
-      # expect(page).to have_content( STORE ADDRESS )
-      # expect(page).to have_content( STORE HOURS )
+      expect(page).to have_content("3000 East First Ave Denver, CO 80206")
+      expect(page).to have_content("Mon: 10am-9pm; Tue: 10am-9pm; Wed: 10am-9pm; Thurs: 10am-9pm; Fri: 10am-9pm; Sat: 10am-9pm; Sun: 10am-6pm" )
 
     end
   end
