@@ -60,10 +60,7 @@ describe 'api/v1/items' do
 
       expect(result).to_not have_key("created_at")
       expect(result).to_not have_key("updated_at")
-
-      # expect(response.code).to eq("201")
     end
-
 
   end
 end
